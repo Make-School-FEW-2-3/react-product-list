@@ -3,3 +3,24 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+li {
+  list-style-type: none
+}
+
+button {
+  font-size: 16px;
+  height: 32px;
+  border: none;
+  color: #ffffff;
+  background-color: #49c5ff;
+  margin: 4px 4px 4px 4px;
+  border-radius: 4px;
+}
+
+.category-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0;
+}
