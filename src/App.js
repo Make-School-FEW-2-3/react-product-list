@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import inventory, { categories } from './inventory'
 import InventoryItem from './InventoryItem'
+import CategoryButton from './CategoryButton'
 import './App.css';
 
 
@@ -14,14 +15,16 @@ class App extends Component {
   }
   
   getCategories() {
-    return categories.map((cat) => <li 
-    key={cat} 
-    onClick={() => {
-      if (this.state.category !== cat)
-        this.setState({category: cat})
-      else
-        this.setState({category: null})
-    }}><button>{cat}</button></li>)
+    return categories.map((cat) => 
+    (<CategoryButton 
+      label= {cat} 
+      onClick={() => {
+        if (this.state.category !== cat)
+          this.setState({category: cat})
+        else
+          this.setState({category: null})
+      }}
+    />))
   }
   render() {
     return (
