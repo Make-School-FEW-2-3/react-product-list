@@ -15,17 +15,24 @@ class App extends Component {
   }
   
   getCategories() {
-    return categories.map((cat) => 
-    (<CategoryButton 
+    if (categories.indexOf('All') === -1) {
+      categories.push('All')
+    }
+
+    return categories.map((cat) => { 
+    const active = this.state.category === cat
+    return (<CategoryButton 
       label= {cat} 
       key= {cat}
+      className={'active-' + active}
       onClick={() => {
-        if (this.state.category !== cat)
+        if ( !active && cat !== 'All')
           this.setState({category: cat})
         else
           this.setState({category: null})
       }}
-    />))
+    />)
+    })
   }
   render() {
     return (

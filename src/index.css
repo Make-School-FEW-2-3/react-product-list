@@ -18,9 +18,17 @@ button {
   border-radius: 4px;
 }
 
+button:focus{
+  outline: none;
+}
+
 .category-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   padding: 0;
+}
+
+.active-true {
+  background-color: #95dcfc;
 }
