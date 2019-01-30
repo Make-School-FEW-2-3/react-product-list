@@ -152,7 +152,7 @@ Unless you went rogue, the page is probably looking pretty bland. Better add som
 
 Handling the details. If you've got the items above worked out you'll realize the interface is not very satisfying. You can make it better! 
 
-1. Display All category
+1. Display All categories
   - Add one more button to the list of category buttons. It's label should "All".
   - Clicking this button should display all products.
 2. We need to know which category is currently selected. The buttons should reflect. 
@@ -160,7 +160,7 @@ Handling the details. If you've got the items above worked out you'll realize th
   - When generating the category elements check the category name against `this.currentCategory` if the names match assign a class to that element, something like `selected-category` remember to use `className` not `class`!
   - You'll need to take into account that the "All" button is it's own category and this category should display all the products! 
 
-Level 6 Challenges 
+**Level 6 Challenges** 
 
 Okay so you did all of the other challenges and you need something more to do, good for you! 
 
@@ -170,6 +170,24 @@ Okay so you did all of the other challenges and you need something more to do, g
 2. Using `Array.reduce()` again, sum the total for currently selected products. In other the sum of all the prices for the products in the currently selected category. 
 3. Use `Array.reduce()` to count the number of products in each category. 
   - Display count for each category as "badge" next to the category label in each category button. 
+
+**Level 7 Challenge**
+
+The category buttons are useful. Currently they should display all of the items with a matching category. These buttons could be even more useful if you could select more than one category at a time! 
+
+1. Allow for selecting multiple categories. For example selecting Toys, Automotive, and Music should show all of the inventory items that match any of these three categories. 
+2. The category selected category buttons should display showing they are currently selected. 
+3. Selecting the All button should deselect the other category buttons and show all inventoty items. 
+
+**Level 8 Challenge** 
+
+Add a shopping cart. The cart should display a list of items that have been added to the cart. Inlcude an Add to Cart button with each inventory item. 
+
+1. Add a component that will display the shopping cart. 
+2. Inventory items need an add to cart button. Clicking this button should add the item to the cart. 
+3. The cart should display items added to the cart. If the same item is added more than once it should show the count. For example: Flexidy x 3
+4. Show the price of the item in the cart. 
+5. Show the total of all items in the cart at the bottom of the cart component. 
 
 ## Some Visuals
 
