@@ -1,40 +1,47 @@
+/* eslint-disable react/jsx-filename-extension */
 import React, { Component } from 'react';
-import inventory, { categories } from './inventory'
-import InventoryItem from './InventoryItem'
-import CategoryButton from './CategoryButton'
+import inventory, { categories } from './inventory';
+import InventoryItem from './InventoryItem';
+import CategoryButton from './CategoryButton';
 import './App.css';
 
 
 class App extends Component {
   constructor(props) {
-    super(props)
-  
+    super(props);
+
     this.state = {
-       category: null,
-    }
+      category: null,
+    };
   }
-  
+
   getCategories() {
     if (categories.indexOf('All') === -1) {
-      categories.push('All')
+      categories.push('All');
     }
 
-    return categories.map((cat) => { 
-    const active = this.state.category === cat
-    return (<CategoryButton 
-      label= {cat} 
-      key= {cat}
-      className={'active-' + active}
-      onClick={() => {
-        if ( !active && cat !== 'All')
-          this.setState({category: cat})
-        else
-          this.setState({category: null})
-      }}
-    />)
-    })
+    return categories.map((cat) => {
+      const { category } = this.state;
+      const active = category === cat;
+      return (
+        <CategoryButton
+          label={cat}
+          key={cat}
+          className={`active-${active}`}
+          onClick={() => {
+            if (!active && cat !== 'All') {
+              this.setState({ category: cat });
+            } else {
+              this.setState({ category: null });
+            }
+          }}
+        />
+      );
+    });
   }
+
   render() {
+    const { category } = this.state;
     return (
       <div className="App">
         <h1>Show products here</h1>
@@ -44,11 +51,11 @@ class App extends Component {
         </ul>
 
         <ul>
-          {inventory.map(currentItem => {
-            if(this.state.category === null || this.state.category === currentItem.category) {
-              return <InventoryItem key={currentItem.id} {...currentItem}/>
+          {inventory.map((currentItem) => {
+            if (category === null || category === currentItem.category) {
+              return <InventoryItem key={currentItem.id} {...currentItem} />;
             }
-            return null
+            return null;
           })
           }
         </ul>

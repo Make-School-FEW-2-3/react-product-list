@@ -1,16 +1,25 @@
-import React, { Component } from 'react'
+/* eslint-disable react/jsx-filename-extension */
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class InventoryItem extends Component {
-  render() {
-    return (
-      <div>
-      <div key={this.props.id}>
-        <h1>{this.props.name}</h1>
-        <p>{this.props.price}</p>
-        <p>{this.props.description}</p>
+const InventoryItem = (props) => {
+  const { id, name, price, description } = props;
+  return (
+    <div>
+      <div key={id}>
+        <h1>{name}</h1>
+        <p>{price}</p>
+        <p>{description}</p>
       </div>
-      </div>
-    )
-  }
-}
+    </div>
+  );
+};
 
+InventoryItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  description: PropTypes.string.isRequired,
+};
+
+export default InventoryItem;
